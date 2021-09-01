@@ -51,6 +51,8 @@ export class GameOfLifeBoard extends React.Component {
                 const middlethree = [0,1,2].map((x)=>{
                     return floor(GAMEBOARD_ARR_LENGTH/2)+x-1;
                 });
+                //currentCell
+                let currentCell = this.props.G.cells[i][j];
 
                 
                 
@@ -59,7 +61,7 @@ export class GameOfLifeBoard extends React.Component {
                     //Keeps the middle 3 visible
                     if(middlethree.includes(j)){
                         cells.push(
-                            <td style={borderRedCellStyle} key={id} onClick={() => this.onClick(id)}>
+                            <td style={currentCell? filledRedCellStyle: borderRedCellStyle} key={id} onClick={() => this.onClick(id)}>
                                 {this.props.G.cells[id]}
                             </td>
                             );
@@ -78,7 +80,7 @@ export class GameOfLifeBoard extends React.Component {
                     //Keeps the middle 3 visible
                     if(middlethree.includes(j)){
                         cells.push(
-                            <td style={borderBlueCellStyle} key={id} onClick={() => this.onClick(id)}>
+                            <td style={currentCell? filledBlueCellStyle:borderBlueCellStyle} key={id} onClick={() => this.onClick(id)}>
                                 {this.props.G.cells[id]}
                             </td>
                             );
