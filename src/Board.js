@@ -97,7 +97,7 @@ export class GameOfLifeBoard extends React.Component {
                 //Main body JSX push
                 else {
                     cells.push(
-                        <td style={cellStyle} key={id} >
+                        <td style={currentCell==0? filledRedCellStyle:currentCell? filledBlueCellStyle:cellStyle} key={id} >
                             {this.props.G.cells[id]}
                         </td>
                     );
