@@ -52,7 +52,9 @@ export class GameOfLifeBoard extends React.Component {
                     return floor(GAMEBOARD_ARR_LENGTH/2)+x-1;
                 });
                 //currentCell
-                let currentCell = this.props.G.cells[i][j];
+                //Red is 0
+                //Blue is 1
+                let currentCell = parseInt(this.props.G.cells[i][j]);
 
                 
                 
@@ -61,7 +63,7 @@ export class GameOfLifeBoard extends React.Component {
                     //Keeps the middle 3 visible
                     if(middlethree.includes(j)){
                         cells.push(
-                            <td style={currentCell? filledRedCellStyle: borderRedCellStyle} key={id} onClick={() => this.onClick(id)}>
+                            <td style={currentCell===0? filledRedCellStyle: borderRedCellStyle} key={id} onClick={() => this.onClick(id)}>
                                 {this.props.G.cells[id]}
                             </td>
                             );
@@ -97,7 +99,7 @@ export class GameOfLifeBoard extends React.Component {
                 //Main body JSX push
                 else {
                     cells.push(
-                        <td style={currentCell==0? filledRedCellStyle:currentCell? filledBlueCellStyle:cellStyle} key={id} >
+                        <td style={currentCell===0? filledRedCellStyle:currentCell? filledBlueCellStyle:cellStyle} key={id} >
                             {this.props.G.cells[id]}
                         </td>
                     );
