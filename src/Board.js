@@ -1,7 +1,8 @@
 import { floor } from 'mathjs';
 import React from 'react';
 
-
+const RED = 0;
+const BLUE = 1;
 
 export class GameOfLifeBoard extends React.Component {
     onClick(id){
@@ -63,7 +64,7 @@ export class GameOfLifeBoard extends React.Component {
                     //Keeps the middle 3 visible
                     if(middlethree.includes(j)){
                         cells.push(
-                            <td style={currentCell===0? filledRedCellStyle: borderRedCellStyle} key={id} onClick={() => this.onClick(id)}>
+                            <td style={currentCell===RED? filledRedCellStyle: borderRedCellStyle} key={id} onClick={() => this.onClick(id)}>
                                 {this.props.G.cells[id]}
                             </td>
                             );
@@ -82,7 +83,7 @@ export class GameOfLifeBoard extends React.Component {
                     //Keeps the middle 3 visible
                     if(middlethree.includes(j)){
                         cells.push(
-                            <td style={currentCell? filledBlueCellStyle:borderBlueCellStyle} key={id} onClick={() => this.onClick(id)}>
+                            <td style={currentCell===BLUE? filledBlueCellStyle:borderBlueCellStyle} key={id} onClick={() => this.onClick(id)}>
                                 {this.props.G.cells[id]}
                             </td>
                             );
@@ -99,7 +100,7 @@ export class GameOfLifeBoard extends React.Component {
                 //Main body JSX push
                 else {
                     cells.push(
-                        <td style={currentCell===0? filledRedCellStyle:currentCell? filledBlueCellStyle:cellStyle} key={id} >
+                        <td style={currentCell===RED? filledRedCellStyle:currentCell===BLUE? filledBlueCellStyle:cellStyle} key={id} >
                             {this.props.G.cells[id]}
                         </td>
                     );
