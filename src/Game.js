@@ -1,15 +1,10 @@
 import { INVALID_MOVE } from "boardgame.io/core";
 import { randomInt } from "mathjs";
-// import { floor } from 'mathjs';
 
 const GAMEBOARD_HEIGHT = 12;
 const GAMEBOARD_WIDTH = 19;
 const RED = 0;
 const BLUE =1;
-// const middlethree = [0,1,2].map((x)=>{
-//     return floor(GAMEBOARD_WIDTH/2)+x-1;
-// });
-
 
 
 
@@ -17,10 +12,15 @@ const BLUE =1;
 
 
 export const GameOfLife = {
-    setup:()=>({cells:Array(GAMEBOARD_HEIGHT).fill(Array(GAMEBOARD_WIDTH).fill(null))}),
+    setup:()=>({
+        cells:Array(GAMEBOARD_HEIGHT).fill(Array(GAMEBOARD_WIDTH).fill(null)),
+        red_turn_button: false,
+        blue_turn_button: false,
+
+    }),
 
    //TODO
-    //How to automatically call a function at the end of a turn
+     //Make it so both players have to press the button to end the turn
     turn:{
         moveLimit:1,
         // onEnd:GameOfLifeLogic(G),
