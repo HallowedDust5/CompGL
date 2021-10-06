@@ -60,7 +60,7 @@ export const GameOfLife = {
 
 function isAlive(x){
     return x===RED || x === BLUE;
-};
+}
 
 //This functions implements the Game of Life logic so that after every turn the board updates
 function GameOfLifeLogic(G) {
@@ -107,12 +107,17 @@ function GameOfLifeLogic(G) {
             }
             board[i][j] = current_cell;
 
+            
 
-
-            return G;
+            
             
         }
+
+
         
     }
 
+
+    G.cells = board;
+    return G;
 }
