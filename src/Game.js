@@ -20,12 +20,14 @@ export const GameOfLife = {
     }),
 
    //TODO
-     //Make it so both players have to press the button to end the turn
+     //Configure Button to update turn_button s, respectively and from there have the turn end if both are true
     turn:{
         moveLimit:1,
         // onEnd:GameOfLifeLogic(G),
         onEnd: (G)=>GameOfLifeLogic(G),
-        // endIf:
+        endIf: (G)=>{
+            return G.red_turn_button && G.blue_turn_button;
+        }
     },
 
     moves: {
@@ -46,8 +48,13 @@ export const GameOfLife = {
                 
 
             },
-            redact:true,
+            client:false,
 
+        },
+        clickButton{
+            move:(G,ctx,red_or_blue)=>{
+
+            },
         }
     },
      

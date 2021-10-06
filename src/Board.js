@@ -4,9 +4,23 @@ import React from 'react';
 const RED = 0;
 const BLUE = 1;
 
+
+
+
 export class GameOfLifeBoard extends React.Component {
     onClick(id){
         this.props.moves.clickCell(id);
+    }
+
+    onButtonClick(){
+        this.props.moves.clickButton()
+    }
+
+    static Button(){
+        return (
+            <button onClick={}
+            )
+    
     }
 
 
@@ -16,6 +30,9 @@ export class GameOfLifeBoard extends React.Component {
             winner = 
             this.props.ctx.gameover.winner !== undefined ? (<div id="winner">Winner:{this.props.ctx.gameover.winner}</div>) : (<div id="winner">Draw!</div>);
         }
+
+        let 
+
         
         const GAMEBOARD_ARR_HEIGHT = this.props.G.cells.length;
         const GAMEBOARD_ARR_LENGTH = this.props.G.cells[0].length;
